@@ -80,11 +80,6 @@ git reflog
 # Reset to a previous state
 git reset --hard HEAD@{2}
 
-
-_________________________________
-
-#generation command for localization:-
-flutter gen-l10n
 __________________________________________
 
 
@@ -155,6 +150,35 @@ __________________________________________
   state management, async notifier provider instared of future provider, notifier provider instead of state n change notifier provider
   ________________________________________________________________________________________________
   
-  application optimizaion.
+  ***localization packages: Easy localization see tutorial and videos.
+  _______________________________________________________________________________________________
   
-  (new device)
+  Error: Build runner fails
+Solution:
+bash
+flutter clean
+flutter pub get
+flutter pub run build_runner clean
+flutter pub run build_runner build --delete-conflicting-outputs
+flutter pub run build_runner build
+
+
+#generation command for localization:-
+flutter gen-l10n
+________________________________________________________________________________
+---------------imp------------------------------------------------------------------------
+api response haru hive ma save garni ani balla po feri dekhauxa next time app kholda.
+
+____________________________________________________________
+
+flutter pub run flutter_launcher_icons
+flutter pub run flutter_native_splash:create
+______________________________________________________
+
+<============================??+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+(Very important):-
+Isolates, multithreading in flutter(used for performance)-It is a built in feature in flutter.
+________________________________________________________________________________________________
+
+important skills:Push notification n map.

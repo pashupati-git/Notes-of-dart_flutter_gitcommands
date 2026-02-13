@@ -1,0 +1,325 @@
+*Ways for declaring a variable
+
+  1.Delare a typed   ||  2.type inference(clean and common)
+    =
+	1.List<String> fruits=[];
+	2.var fruits=[];  //it automatically determines its an list.
+
+=
+1.	 
+Map<String, String> picture = {
+  'url': 'image.png',
+  'type': 'png',
+};	 
+	
+2.
+var picture = {
+  'url': 'image.png',
+  'type': 'png',
+};	    //Dart infers this as Map<String, String>
+________________________________________________________
+
+*important
+
+void main() {
+  String name;
+  int no;
+  double no1;
+  List<String> fruits;
+  Set<String> vehicles;
+  bool isCorrect;
+  Map<String, dynamic> picture;
+  var money;
+
+  name = 'Pashupati Chaudhary';
+  no = 20;
+  no1 = 12.45;
+
+  fruits = ['apple', 'banana', 'orange', 'pineapple', 'dragon fruit'];
+  vehicles = {'car', 'bus', 'van'};
+
+  isCorrect = false;
+
+  picture = {
+    'url': 'image.png',
+    'name': 'Pashupati Chaudhary',
+    'size': 1025,
+    'isFavourite': true,
+  };
+
+  money = 'Pashupati';
+
+  print(name);
+  print(no);
+  print(no1);
+  print(fruits);
+  print(vehicles);
+  print(isCorrect);
+  print(picture);
+  print(money.runtimeType);
+}
+
+
+
+Output:-
+Pashupati Chaudhary
+20
+12.45
+[apple, banana, orange, pineapple, dragon fruitt]
+{car, bus, van}
+false
+{url: image.png, name: Pashupati Chaudhary, size: 1025, isFavourite: true}
+String
+
+________________________________________________________
+
+List<String> fruits;
+Set<String> vehicles;
+Map<String, dynamic> picture;
+
+1.Prevents bugs
+
+2.Helps autocomplete
+
+3.Makes Flutter apps safer & faster
+_____________________________________________________
+*List
+
+  =A list is an ordered collection that allows duplicates
+  
+  List<String> vehicles=['car','bus','van'];
+  print(vehicles[0]);
+  print(vehicles);
+  
+  //keeps order, allows duplicate values, access by index
+________________________________________________________
+
+*Set
+
+  =A set is an unordered collection that does not allow duplicates
+  
+  Set<String> vehicles={'car','bus','bike'];
+  
+  result={'car','bike'}
+  
+  //unique values only,no guaranteed order,no index access
+  
+1.Adding elements
+vehicles.add('Bus');
+vehicles.addAll(['Van', 'SUV']);
+
+2.Checking Values
+vehicles.contains('Car'); // true
+________________________________________________________
+
+*List and set
+  
+  List<String> names =['Ali','sara','Ali'];
+  Set<String> uniqueNames=names.toSet();
+  print(uniqueNames);
+________________________________________________________
+  
+*Map
+
+Map<String, dynamic> picture = {
+  'url': 'image.png',
+  'size': 1024,
+  'isFavorite': true,
+};
+
+1.Accessing values
+print(picture['url']; //image.png
+
+2.Adding or updating entries
+picture['isFavourite']=false;
+picture['url']='new_image_png';
+
+3.Checking keys and values
+picture.containsKey('url'); //true
+picture.containsValue('png'); //true
+________________________________________________________
+
+
+void main() {
+  // STRING
+  String name = 'Flutter Developer';
+
+  print(name.length);              // Length of string
+  print(name.toUpperCase());       // Uppercase
+  print(name.toLowerCase());       // Lowercase
+  print(name.contains('Dev'));     // true
+  print(name.replaceAll('Flutter', 'Dart'));
+  print(name.split(' '));          // Convert to List
+
+  print('-------------------');
+
+  // INT
+  int age = 25;
+
+  print(age.isEven);               // true/false
+  print(age.isOdd);                // true/false
+  print(age.abs());                // Absolute value
+  print(age.compareTo(30));        // -1, 0, or 1
+  print(age.toString());           // Convert to String
+
+  print('-------------------');
+
+  // DOUBLE
+  double price = 199.99;
+
+  print(price.round());            // 200
+  print(price.floor());            // 199
+  print(price.ceil());             // 200
+  print(price.toStringAsFixed(1)); // 200.0
+
+  print('-------------------');
+
+  // LIST
+  List<String> fruits = ['Apple', 'Banana', 'Orange'];
+
+  fruits.add('Mango');             // Add item
+  fruits.remove('Banana');         // Remove item
+  print(fruits.length);            // Count
+  print(fruits.first);             // First item
+  print(fruits.last);              // Last item
+  print(fruits.contains('Apple')); // true
+  fruits.sort();                   // Sort list
+
+  print(fruits);
+
+  print('-------------------');
+
+  // SET
+  Set<String> vehicles = {'Car', 'Bus', 'Bike'};
+
+  vehicles.add('Truck');           // Add
+  vehicles.add('Car');             // Duplicate ignored
+  vehicles.remove('Bus');          // Remove
+  print(vehicles.contains('Bike'));
+  print(vehicles.length);
+
+  print(vehicles);
+
+  print('-------------------');
+
+  // BOOL
+  bool isLoggedIn = true;
+
+  print(isLoggedIn);               // true
+  print(!isLoggedIn);              // false (NOT operator)
+
+  print('-------------------');
+
+  // MAP
+  Map<String, dynamic> picture = {
+    'url': 'photo.png',
+    'width': 500,
+    'height': 300,
+    'isPublic': true,
+  };
+
+  print(picture['url']);           // Access value
+  picture['size'] = '500KB';       // Add new key
+  picture.remove('height');        // Remove key
+  print(picture.keys);             // All keys
+  print(picture.values);           // All values
+  print(picture.containsKey('url'));
+  print(picture.containsValue(true));
+
+  print(picture);
+
+  print('-------------------');
+
+  // VAR
+  var money = 1500;                // int
+  print(money.runtimeType);
+
+  money = 2000;                    // Still int
+  print(money);
+}
+_____________________________________________________
+
+🔥 final vs var vs const
+😒😒😒
+
+🟢 var — changeable variable
+
+-Value can change
+
+-Type is inferred once
+
+-Most commonly used for normal variables
+
+Example
+var name = 'Dart';
+name = 'Flutter';      // ✅ allowed
+// name = 10;          // ❌ not allowed (type fixed)
+
+
+✔ Value can change
+❌ Type cannot change
+_____________________________________________________
+
+🔵 final — runtime constant
+
+Value is set once
+
+Assigned at runtime
+
+Cannot be reassigned
+
+Example
+final city = 'Kathmandu';
+// city = 'Pokhara';   // ❌ error
+
+With collections
+final List<String> fruits = ['Apple', 'Banana'];
+fruits.add('Mango');  // ✅ allowed
+
+
+✔ Reference is fixed
+✔ Contents can change
+_____________________________________________________
+
+🔴 const — compile-time constant
+
+Value must be known at compile time
+
+Completely immutable
+
+Most strict
+
+Example
+const pi = 3.14;
+// pi = 3.15;         // ❌ error
+
+With collections
+const List<String> colors = ['Red', 'Green'];
+// colors.add('Blue'); // ❌ error
+
+
+✔ Value fixed
+✔ Contents fixed
+_____________________________________________________
+
+🧠 Real Flutter Examples
+var (local logic)
+var counter = 0;
+counter++;
+
+final (API / runtime data)
+final userName = getUserName();
+
+const (UI & performance)
+const Text('Hello Flutter');
+
+🚀 Golden Rules (Remember this!)
+
+🔥 Use var when value will change
+🔥 Use final when value won’t change but is known at runtime
+🔥 Use const when value is fixed forever
+
+💡 Interview One-Liner
+
+const is compile-time constant, final is runtime constant, var is mutable.
+_____________________________________________________
